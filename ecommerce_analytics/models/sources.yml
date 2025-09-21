@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: ecommerce
+    schema: bronze_layer
+    tables:
+      - name: sales
+      - name: customers
+      - name: customers_extension
+      - name: products

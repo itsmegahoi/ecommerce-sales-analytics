@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environment files
+.env
+
+# Airflow
+logs/
+airflow.cfg
+unittests.cfg
+
+# Databases
+*.db
+
+# OS files
+.DS_Store
+
+# Virtual env
+venv/
+ecom_analytics_env/
+.env/
+
