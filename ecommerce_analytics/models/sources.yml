@@ -6,5 +6,11 @@ sources:
     tables:
       - name: sales
       - name: customers
-      - name: customers_extension
       - name: products
+  
+  # - name: ecommerce_silver
+  #   schema: bronze_layer_staging
+  #   tables:
+  #     # - name: cleaned_sales
+  #     - name: dim_customers
+  #     # - name: cleaned_products
