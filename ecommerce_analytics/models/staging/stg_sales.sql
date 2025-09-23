@@ -5,7 +5,7 @@ SELECT
     StockCode, 
     Description, 
     Quantity, 
-    InvoiceDate, 
+    try_to_timestamp(InvoiceDate, 'M/d/yyyy H:mm') as InvoiceDate,
     UnitPrice, 
     CustomerID 
 FROM 

@@ -40,6 +40,6 @@ models:
     integration:
       +schema: silver_layer
       +materialized: table
-    # access:
-    #   +schema: gold_layer
-    #   +materialized: table
+    access:
+      +schema: gold_layer
+      +materialized: table

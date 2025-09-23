@@ -1,6 +1,7 @@
-{{ config(materialized = 'view')}}
+{{ config(materialized = 'view') }}
 
-SELECT monotonically_increasing_id() as product_id,
+SELECT
+    abs(cast(conv(substr(sha2(product_name, 256), 1, 15), 16, 10) as bigint)) as product_id,
     product_name,
     price,
     quantity_sold,
@@ -8,5 +9,5 @@ SELECT monotonically_increasing_id() as product_id,
     release_date,
     customer_rating,
     in_stock
-FROM {{source('ecommerce', 'products')}}
-WHERE product_id IS NOT NULL
+FROM {{ source('ecommerce', 'products') }}
+WHERE product_name IS NOT NULL
