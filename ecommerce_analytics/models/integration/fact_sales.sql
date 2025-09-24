@@ -7,8 +7,7 @@ SELECT
     InvoiceDate,
     CASE 
     WHEN lower(s.Description) = 'discount' THEN s.UnitPrice
-    ELSE
-    round(try_divide(p.price, p.quantity_sold), 2) 
+    ELSE round(try_divide(p.price, p.quantity_sold), 2) 
     END AS UnitPrice,
     CASE
      WHEN lower(s.Description) = 'discount' THEN round(abs(s.quantity * s.UnitPrice), 2)

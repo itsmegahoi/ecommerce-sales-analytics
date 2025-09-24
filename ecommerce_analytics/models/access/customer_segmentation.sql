@@ -12,7 +12,7 @@ select
     CustomerID,
     datediff(max(last_order_date) over (), last_order_date) as recency_days,
     frequency,
-    monetary,
+    round(monetary, 2) AS monetary,
     case 
         when monetary > 1000 then 'High Value'
         when monetary between 500 and 1000 then 'Medium Value'
