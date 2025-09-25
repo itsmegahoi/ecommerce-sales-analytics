@@ -10,6 +10,7 @@ with product_sales as (
 )
 
 select
+  DISTINCT
     product_id,
     manufacturer,
     total_quantity_sold,

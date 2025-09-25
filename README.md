@@ -50,7 +50,6 @@ We follow the **Medallion Architecture** (Bronze → Silver → Gold) to structu
    * Regional Revenue
 3. Automate pipeline with **Airflow** (future scope)
 
-
 ## 📖 Documentation
 
 Generate docs with:
