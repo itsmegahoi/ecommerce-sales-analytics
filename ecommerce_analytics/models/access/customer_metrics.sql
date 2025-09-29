@@ -7,7 +7,7 @@ with customer_sales as (
         count(distinct InvoiceNo) as total_orders,
         min(InvoiceDate) as first_order_date,
         max(InvoiceDate) as last_order_date,
-        round(SUM(CASE WHEN transaction_type = 'return' THEN (quantity * UnitPrice) - discount ELSE 0 END), 2) AS return_amount,
+        ABS(round(SUM(CASE WHEN transaction_type = 'return' THEN (quantity * UnitPrice) - discount ELSE 0 END), 2)) AS return_amount,
         round(SUM(CASE WHEN transaction_type = 'sale' THEN (quantity * UnitPrice) - discount ELSE 1 END), 2) AS gross_sales
     from {{ ref('fact_sales') }}
     group by CustomerID

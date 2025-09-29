@@ -16,7 +16,7 @@ SELECT
     city,
     country,
     SUM(CASE WHEN transaction_type = 'sale' THEN total_sales ELSE 0 END) AS gross_sales,
-    SUM(CASE WHEN transaction_type = 'return' THEN total_sales ELSE 0 END) AS return_amount,
+    ABS(SUM(CASE WHEN transaction_type = 'return' THEN total_sales ELSE 0 END)) AS return_amount,
     SUM(total_sales) AS net_sales,
     SUM(total_orders) AS total_orders,
     SUM(total_customers) AS total_customers

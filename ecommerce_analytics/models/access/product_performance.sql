@@ -16,7 +16,7 @@ SELECT
     product_name,
     manufacturer,
     ROUND(SUM(CASE WHEN transaction_type = 'sale' THEN total_revenue ELSE 0 END), 2) AS gross_sales,
-    ROUND(SUM(CASE WHEN transaction_type = 'return' THEN total_revenue ELSE 0 END), 2) AS total_returns,
+    ABS(ROUND(SUM(CASE WHEN transaction_type = 'return' THEN total_revenue ELSE 0 END), 2)) AS total_returns,
     ROUND(SUM(total_revenue), 2) AS net_sales,
     RANK() OVER (ORDER BY SUM(total_revenue) DESC) AS revenue_rank
 FROM product_sales

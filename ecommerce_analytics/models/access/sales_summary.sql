@@ -18,7 +18,7 @@ select
     COUNT(DISTINCT CASE WHEN transaction_type = 'sale' THEN InvoiceNo END) AS total_sold,
     COUNT(DISTINCT CASE WHEN transaction_type = 'return' THEN InvoiceNo END) AS total_returns,
     round(SUM(CASE WHEN transaction_type = 'sale' THEN net_sales ELSE 0 END), 2) AS gross_sales,
-    round(SUM(CASE WHEN transaction_type = 'return' THEN net_sales ELSE 0 END), 2) AS return_amount,
+    ABS(round(SUM(CASE WHEN transaction_type = 'return' THEN net_sales ELSE 0 END), 2)) AS return_amount,
     count(distinct InvoiceNo) as total_orders,
     count(distinct CustomerID) as unique_customers,
     round(avg(net_sales), 2) as avg_order_value,
