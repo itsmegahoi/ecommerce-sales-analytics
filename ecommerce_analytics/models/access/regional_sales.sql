@@ -1,7 +1,10 @@
 WITH sales_cte AS (
     SELECT
         dc.city,
-        dc.country,
+        CASE
+         WHEN dc.country IS NULL THEN 'Unknown Region'
+         ELSE dc.country
+        END AS country,
         fs.transaction_type,
         ROUND(SUM((fs.quantity * fs.UnitPrice) - fs.discount), 2) AS total_sales,
         COUNT(DISTINCT fs.InvoiceNo) AS total_orders,
