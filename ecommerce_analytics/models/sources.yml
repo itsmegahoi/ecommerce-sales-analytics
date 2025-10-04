@@ -4,7 +4,7 @@ sources:
   - name: ecommerce
     schema: bronze_layer
     tables:
-      - name: sales
+      - name: raw_sales
       - name: customers
       - name: products
   

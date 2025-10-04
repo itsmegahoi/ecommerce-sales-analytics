@@ -9,5 +9,5 @@ SELECT
     UnitPrice, 
     CustomerID 
 FROM 
-    {{source('ecommerce', 'sales')}}
+    {{source('ecommerce', 'raw_sales')}}
 WHERE CustomerID IS NOT NULL
